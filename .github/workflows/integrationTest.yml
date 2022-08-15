@@ -26,5 +26,5 @@ jobs:
         if: success() || failure()
         with:
             name: Integration test report
-            path: app/build/reports/integrationTest
+            path: app/build/reports/tests/integrationTest
 
