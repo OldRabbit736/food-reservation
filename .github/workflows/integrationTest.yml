@@ -21,8 +21,9 @@ jobs:
       - name: Execute Gradle Integration Test
         run: ./gradlew integrationTest
 
-      - name: Archive test report
+      - name: Archive integration test report
         uses: actions/upload-artifact@v3
+        if: success() || failure()
         with:
             name: Integration test report
             path: app/build/reports/integrationTest
