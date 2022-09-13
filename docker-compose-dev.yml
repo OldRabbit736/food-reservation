@@ -1,0 +1,8 @@
+services:
+  mariadb:
+    image: mariadb:10.9.2
+    environment:
+      MARIADB_ROOT_PASSWORD: password
+      MARIADB_DATABASE: food-reservation
+    ports:
+      - "3306:3306"
