@@ -30,14 +30,6 @@ dependencies {
     testRuntimeOnly 'com.h2database:h2'
 }
 
-/*
-- plain jar 파일 생성 해제
-- 도커 이미지에 복사될 jar 파일 외의 jar(plain jar) 생성 해제
- */
-jar {
-    enabled = false
-}
-
 tasks.named('test') {
     useJUnitPlatform()
 
