@@ -20,3 +20,4 @@ services:
     environment:
       SPRING_PROFILES_ACTIVE: dev
       JEP: ${JEP}
+      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb:3306/food-reservation
