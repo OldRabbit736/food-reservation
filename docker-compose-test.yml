@@ -1,0 +1,9 @@
+services:
+  mariadb:
+    image: mariadb:10.9.2
+    environment:
+      MARIADB_ROOT_PASSWORD: password
+      MARIADB_DATABASE: food-reservation
+    ports:
+      # dev 와 다른 포트 설정. (로컬 컴퓨터에서 dev 와 test 환경을 동시에 실행할 가능성이 있기 때문에)
+      - "3307:3306"
