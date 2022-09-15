@@ -27,14 +27,19 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1
 
+      # workflow summary 에 build scan 결과 링크 등 유저 인터페이스를 추가하기 위한 action
+      # https://github.com/marketplace/actions/gradle-build-action#build-scans
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
+
+      - name: Set up test environment
+        run: sh script/test-ci.sh
 
       - name: Build
         run: ./gradlew build --scan
 
       - name: Build container image
-        run: docker build app/ -t ${{ env.IMAGE_NAME }}
+        run: docker build docker/app/ -t ${{ env.IMAGE_NAME }} .
 
       - name: Login to Docker Hub
         uses: docker/login-action@v2

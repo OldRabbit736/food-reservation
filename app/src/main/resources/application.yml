@@ -1,0 +1,8 @@
+spring:
+  config:
+    import:
+      - "optional:classpath:config/db/"
+      - "optional:classpath:config/hibernate/"
+      - "optional:classpath:config/jasypt/"
+      - "optional:classpath:config/oauth/"
+      - "optional:classpath:config/redis/"

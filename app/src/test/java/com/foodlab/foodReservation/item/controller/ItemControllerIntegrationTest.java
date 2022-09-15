@@ -1,6 +1,7 @@
 package com.foodlab.foodReservation.item.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.foodlab.foodReservation.auth.config.SecurityConfig;
 import com.foodlab.foodReservation.common.Address;
 import com.foodlab.foodReservation.item.dto.request.CreateItemRequest;
 import com.foodlab.foodReservation.item.dto.request.UpdateItemRequest;
@@ -15,10 +16,16 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.oauth2Login;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -27,7 +34,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
-@WebMvcTest(controllers = ItemController.class)
+@WebMvcTest(
+        controllers = ItemController.class,
+        excludeFilters = {
+                @ComponentScan.Filter(
+                        type = FilterType.ASSIGNABLE_TYPE,
+                        classes = SecurityConfig.class
+                )
+        }
+)
+@WithMockUser
 public class ItemControllerIntegrationTest {
 
     @Autowired
@@ -75,9 +91,11 @@ public class ItemControllerIntegrationTest {
 
         // expected
         mockMvc.perform(post("/items")
-                .contentType(APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(createItemRequest))
-        )
+                        .with(oauth2Login()
+                                .authorities(new SimpleGrantedAuthority("ROLE_CUSTOMER")))
+                        .contentType(APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(createItemRequest))
+                        .with(csrf()))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.savedItemId").value(1L))
                 .andDo(print());
@@ -98,10 +116,11 @@ public class ItemControllerIntegrationTest {
                 .thenReturn(new CreateItemResponse(1L));
 
         // expected
-        mockMvc.perform(post("/items")
-                .contentType(APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(createItemRequest))
-        )
+        mockMvc.perform(post("/items").with(oauth2Login()
+                                .authorities(new SimpleGrantedAuthority("ROLE_CUSTOMER")))
+                        .contentType(APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(createItemRequest))
+                        .with(csrf()))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.status").value("FAIL"))
                 .andDo(print());
@@ -120,10 +139,11 @@ public class ItemControllerIntegrationTest {
                 .thenReturn(new UpdateItemResponse("TEST_MENU", 10000));
 
         // expected
-        mockMvc.perform(put("/items/{itemId}", 1L)
-                .contentType(APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(updateItemRequest))
-        )
+        mockMvc.perform(put("/items/{itemId}", 1L).with(oauth2Login()
+                                .authorities(new SimpleGrantedAuthority("ROLE_CUSTOMER")))
+                        .contentType(APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(updateItemRequest))
+                        .with(csrf()))
                 .andExpect(status().isOk())
                 .andDo(print());
     }
@@ -138,10 +158,11 @@ public class ItemControllerIntegrationTest {
                 .build();
 
         // expected
-        mockMvc.perform(put("/items/{itemId}", 1L)
-                .contentType(APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(updateItemRequest))
-        )
+        mockMvc.perform(put("/items/{itemId}", 1L).with(oauth2Login()
+                                .authorities(new SimpleGrantedAuthority("ROLE_CUSTOMER")))
+                        .contentType(APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(updateItemRequest))
+                        .with(csrf()))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.status").value("FAIL"))
                 .andExpect(jsonPath("$.data[0].errorMessage").value("가격은 0 이하일 수 없습니다."))
@@ -156,9 +177,10 @@ public class ItemControllerIntegrationTest {
                 .thenReturn(new DeleteItemResponse(1L, true));
 
         // expected
-        mockMvc.perform(delete("/items/{itemId}", 1L)
-                .contentType(APPLICATION_JSON)
-        )
+        mockMvc.perform(delete("/items/{itemId}", 1L).with(oauth2Login()
+                                .authorities(new SimpleGrantedAuthority("ROLE_CUSTOMER")))
+                        .contentType(APPLICATION_JSON)
+                        .with(csrf()))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.deletedItemId").value(1L))
                 .andDo(print());

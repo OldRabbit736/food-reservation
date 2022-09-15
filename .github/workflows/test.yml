@@ -20,8 +20,14 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1
 
+      # workflow summary 에 build scan 결과 링크 등 유저 인터페이스를 추가하기 위한 action
+      # https://github.com/marketplace/actions/gradle-build-action#build-scans
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
-      - name: Check
-        run: ./gradlew check --scan
+      - name: Set up test environment
+        run: sh script/test-ci.sh
+
+      # build task 를 수행하는 과정에서 test, integration test task 실행
+      - name: build
+        run: ./gradlew build --scan

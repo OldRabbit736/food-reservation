@@ -1,0 +1,22 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          kakao:
+            client-name: Kakao
+            client-id: ENC(jhXDR5Ja/5GRNBiQKE0KlJADWEMlbHzURbrCPZadqsZG6dtG7u6P9Q6noxkWZH3X)
+            client-secret: ENC(6v4bYDsS6UIsgJGGbTlbern8lydY9oI6L1QAOTn6KH6fAo5x/KH/H3N+6pKmuJF5)
+            redirect-uri: http://localhost:8080/login/oauth2/code/kakao
+            scope: account_email
+            authorization-grant-type: authorization_code
+            client-authentication-method: POST
+        provider:
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: id
+
+token-secret-key: f_lab_food_reservation_token_secret_key
+token-refresh-key: f_lab_food_reservation_token_refresh_key
