@@ -43,7 +43,11 @@ resource "ncloud_server" "server_public" {
   server_image_product_code = "SW.VSVR.OS.LNX64.UBNTU.SVR2004.B050"
   server_product_code = "SVR.VSVR.HICPU.C002.M004.NET.SSD.B050.G002"
   login_key_name = ncloud_login_key.login_key.key_name
-  init_script_no = ncloud_init_script.init.id
+
+  // init script 포함 시 서버 생성이 이상하게 매우 느려지넌 것 같아 일단 제외
+  // init script 없을 때 : 4분 정도 소요
+  // init script 있을 때 : 14분 정도 소요
+  //init_script_no = ncloud_init_script.init.id
 }
 
 # Public IP
