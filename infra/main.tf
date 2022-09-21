@@ -43,6 +43,7 @@ resource "ncloud_server" "server_public" {
   server_image_product_code = "SW.VSVR.OS.LNX64.UBNTU.SVR2004.B050"
   server_product_code = "SVR.VSVR.HICPU.C002.M004.NET.SSD.B050.G002"
   login_key_name = ncloud_login_key.login_key.key_name
+  init_script_no = ncloud_init_script.init.id
 }
 
 # Public IP
