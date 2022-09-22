@@ -1,2 +1,2 @@
 echo down compose...
-docker compose -f docker-compose-prod.yml down
+docker compose -f docker-compose-prod.yml --project-name food-reservation-prod down
