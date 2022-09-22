@@ -83,5 +83,5 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd food-reservation
-            export JEP=${{ secret.JEP }}
+            export JEP=${{ secrets.JEP }}
             sh script/prod.sh      
