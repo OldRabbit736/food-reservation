@@ -8,7 +8,7 @@ if [ -n "${JEP}" ]; then
 #  docker build -f docker/app/Dockerfile -t oldrabbit736/food-reservation-app:temp .
 #  임시
   echo up compose...
-  docker compose -f docker-compose-prod.yml up -d
+  docker compose -f docker-compose-prod.yml --project-name food-reservation-prod up -d
 else
   echo "스크립트 실행 전 JEP 환경변수 값을 설정해 주세요!"
 fi
