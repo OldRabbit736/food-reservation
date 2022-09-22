@@ -19,3 +19,14 @@ echo \
 ## Install Docker Engine
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+
+## get docker compose file
+mkdir food-reservation && cd food-reservation
+wget https://kr.object.ncloudstorage.com/food-reservation/docker-compose-prod.yml
+
+## 환경변수 설정
+# export JEP = ...
+
+## 실행
+docker compose -f docker-compose-prod.yml up

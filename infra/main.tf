@@ -59,3 +59,5 @@ data "ncloud_root_password" "root_password" {
   server_instance_no = ncloud_server.server_public.id
   private_key = ncloud_login_key.login_key.private_key
 }
+
+// TODO - default ACG 포트 설정
