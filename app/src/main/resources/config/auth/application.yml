@@ -6,7 +6,7 @@ spring:
           kakao:
             client-name: Kakao
             client-id: ENC(tKyv71GLK6dGyOjfvWEEoB3+PSkkAvLSAq7g8VmfYQPz2JqF6H9B18D5iwL1/9dt)
-            client-secret: ENC(X8wlxLIcyeHYKHUIdxOJg5l5icoVzJ9J7JDbXjdTjWLISkR52SsBrH5)
+            client-secret: ENC(fjHiOjaxOK0JAvHdpAq9NWXjhPUp3fayjMlVYu4nKVkDEyyAFYnuVpSb/LXXZ9xm)
             redirect-uri: http://localhost:8080/login/oauth2/code/kakao
             scope:
               - account_email
@@ -18,3 +18,6 @@ spring:
             token-uri: https://kauth.kakao.com/oauth/token
             user-info-uri: https://kapi.kakao.com/v2/user/me
             user-name-attribute: id
+
+token-secret-key: ENC(pLDYXfoCmWHS2C2W3wfGpEECn5hvF7X7b8RMpxIS1UX9CZgAYPacVbrv2qSFtyHYoQAH4uYc8no=)
+token-refresh-key: ENC(P+W9Fno51Ubn6WKHBwZYsWXK0OgQWfPEWysJFPpMwcYFvkMmko4mizl4hHPKJOKtxKYKbY26UrA=)
