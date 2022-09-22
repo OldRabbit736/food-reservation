@@ -83,6 +83,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
+          envs: IMAGE_NAME, JEP
           script: |
             cd food-reservation
             sh script/prod.sh      
