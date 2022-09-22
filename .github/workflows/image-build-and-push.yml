@@ -52,12 +52,29 @@ jobs:
       - name: Push to container registry
         run: docker push ${{ env.IMAGE_NAME }}
 
-      - name: Deploy to production server
-        uses: appleboy/ssh-action@master
+
+      - uses: actions/checkout@master
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: |
-            mkdir wow
+          source: "script/prod.sh,script/prod-down.sh,docker-compose-prod.yml"
+          target: "food-reservation"
+
+
+
+#      - name: Deploy to production server
+#        uses: appleboy/ssh-action@master
+#        with:
+#          host: ${{ secrets.HOST }}
+#          username: ${{ secrets.USERNAME }}
+#          password: ${{ secrets.PASSWORD }}
+#          port: ${{ secrets.PORT }}
+#          script: |
+#            cd food-reservation
+#            docker compose -f docker-compose-prod.yml down
+#            scp
+            
