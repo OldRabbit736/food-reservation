@@ -52,6 +52,9 @@ jobs:
       - name: Push to container registry
         run: docker push ${{ env.IMAGE_NAME }}
 
+      # 결국 여기서... 만약 docker compose 가 실행되고 있지 않은 조건에서도
+      # 아래의 스크립가 오류가 없이 다음 단계로 넘어가도록 해야 한다.
+      # 즉.. 스크립트 공부가 필요하다.
       - name: Down compose in production server
         uses: appleboy/ssh-action@master
         with:
