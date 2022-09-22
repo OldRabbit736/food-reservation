@@ -75,6 +75,9 @@ jobs:
 
       - name: Up compose in production server
         uses: appleboy/ssh-action@master
+        env:
+          IMAGE_NAME: ${{ env.IMAGE_NAME }}
+          JEP: ${{ secrets.JEP }}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
@@ -82,6 +85,4 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd food-reservation
-            export IMAGE_NAME=${{ env.IMAGE_NAME }}
-            export JEP=${{ secrets.JEP }}
             sh script/prod.sh      
