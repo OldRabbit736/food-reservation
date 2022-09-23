@@ -74,5 +74,7 @@ jobs:
           port: ${{ secrets.PORT }}
           envs: IMAGE_NAME, JEP
           script: |
+            export IMAGE_NAME=$IMAGE_NAME
+            export JEP=$JEP
             cd food-reservation
             sh script/prod.sh      
