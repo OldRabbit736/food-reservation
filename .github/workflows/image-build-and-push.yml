@@ -59,7 +59,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: "script/prod.sh,script/prod-down.sh,docker-compose-prod.yml"
+          source: "script/prod.sh,docker-compose-prod.yml"
           target: "food-reservation"
 
       - name: Up compose in production server
