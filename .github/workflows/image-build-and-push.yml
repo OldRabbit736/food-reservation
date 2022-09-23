@@ -76,6 +76,4 @@ jobs:
           script: |
             export IMAGE_NAME=$IMAGE_NAME
             export JEP=$JEP
-            cd food-reservation
-            sh script/prod.sh      
-
+            sh food-reservation/script/prod.sh
