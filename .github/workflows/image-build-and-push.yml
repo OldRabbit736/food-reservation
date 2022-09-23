@@ -52,23 +52,6 @@ jobs:
       - name: Push to container registry
         run: docker push ${{ env.IMAGE_NAME }}
 
-      # 결국 여기서... 만약 docker compose 가 실행되고 있지 않은 조건에서도
-      # 아래의 스크립가 오류가 없이 다음 단계로 넘어가도록 해야 한다.
-      # 즉.. 스크립트 공부가 필요하다.
-      # 여기서는 env가 필요할까? 만약 compose up 할 때의 env가 여기서 남아있다면! 그렇다면 env가 필요없다.
-      # env를 넣어준다고 한들... 그건 이미 돌아가고 있는 app image가 아닌 그보다 신규의 app image를 넣어주는 것이기 때문에
-      # 그것을 바탕으로 compose down을 한다면 오류가 날 것이다..
-      - name: Down compose in production server
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: |
-            cd food-reservation
-            sh script/prod-down.sh            
-
       - name: copy file via ssh password
         uses: appleboy/scp-action@master
         with:
