@@ -3,10 +3,6 @@ name: deploy
 on:
   workflow_call:
     inputs:
-      ENV_NAME:
-        description: 프로덕션 environment
-        required: true
-        type: string
       IMAGE_NAME:
         description: 배포할 app image name
         type: string
@@ -18,7 +14,8 @@ on:
 
 jobs:
   deploy:
-    environment: ${{ inputs.ENV_NAME }}
+    environment:
+      name: PROD_JS
     # 각 환경마다 HOST, USERNAME, PASSWORD, PORT 를 Secret 으로 가지고 있어야 한다.
     # HOST : 배포 서버의 퍼블릭 ip
     # USERNAME : 배포 서버 접속 계정 이름 (예: root)
@@ -32,10 +29,10 @@ jobs:
       - name: copy file via ssh password
         uses: appleboy/scp-action@master
         with:
-          host: 101.79.8.193
-          username: root
-          password: J5U$Y%JrRy
-          port: 22
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           source: "script/prod.sh,docker-compose-prod.yml"
           target: "food-reservation"
 
