@@ -7,6 +7,9 @@ on:
         description: 배포할 app image name
         type: string
         required: true
+      ENV_NAME:
+        required: true
+        type: string
 #    secrets:
 #      JEP:
 #        description: jasypt encryptor password
@@ -14,13 +17,8 @@ on:
 
 jobs:
   deploy_to_server:
-    strategy:
-      matrix:
-        environment: [PROD_JS]
-
-#    environment:
-#      name: PROD_JS
-
+    environment:
+      name: ${{ inputs.ENV_NAME }}
     # 각 환경마다 HOST, USERNAME, PASSWORD, PORT 를 Secret 으로 가지고 있어야 한다.
     # HOST : 배포 서버의 퍼블릭 ip
     # USERNAME : 배포 서버 접속 계정 이름 (예: root)
