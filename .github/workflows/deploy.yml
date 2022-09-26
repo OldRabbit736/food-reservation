@@ -12,7 +12,7 @@ on:
         type: string
 
 jobs:
-  deploy_to_server:
+  deploy-to-server:
     environment:
       name: ${{ inputs.ENV_NAME }}
     # 각 환경마다 HOST, USERNAME, PASSWORD, PORT 를 Secret 으로 가지고 있어야 한다.
