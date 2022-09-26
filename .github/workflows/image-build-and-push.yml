@@ -63,5 +63,6 @@ jobs:
       IMAGE_NAME: oldrabbit736/food-reservation-app:0.0.1
       ENV_NAME: ${{ matrix.ENV_NAME }}
       #https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/reusing-workflows#limitations
+      #https://stackoverflow.com/questions/73305126/passing-env-variable-inputs-to-a-reusable-workflow
       #IMAGE_NAME: ${{ env.IMAGE_NAME }}
     secrets: inherit
