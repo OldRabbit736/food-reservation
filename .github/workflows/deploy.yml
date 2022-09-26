@@ -1,0 +1,62 @@
+name: deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      HOST:
+        description: 서버 아이피
+        required: true
+        type: string
+      USERNAME:
+        description: 서버 유저네임
+        required: true
+        type: string
+      PASSWORD:
+        description: 서버 비밀번호
+        required: true
+        type: string
+      PORT:
+        description: 서버 포트 번호
+        required: true
+        type: string
+
+env:
+  DOCKERHUB_USER_NAME: oldrabbit736
+  IMAGE_NAME: oldrabbit736/food-reservation-app:0.0.${{ github.run_number }}
+  HOST: ${{ github.event.inputs.HOST }}
+  USERNAME: ${{ github.event.inputs.USERNAME }}
+  PASSWORD: ${{ github.event.inputs.PASSWORD }}
+  PORT: ${{ github.event.inputs.PORT }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ env.HOST }}
+          username: ${{ env.USERNAME }}
+          password: ${{ env.PASSWORD }}
+          port: ${{ env.PORT }}
+          source: "script/prod.sh,docker-compose-prod.yml"
+          target: "food-reservation"
+
+      - name: Up compose in production server
+        uses: appleboy/ssh-action@master
+        env:
+          IMAGE_NAME: ${{ env.IMAGE_NAME }}
+          JEP: ${{ secrets.JEP }}
+        with:
+          host: ${{ env.HOST }}
+          username: ${{ env.USERNAME }}
+          password: ${{ env.PASSWORD }}
+          port: ${{ env.PORT }}
+          envs: IMAGE_NAME, JEP
+          script: |
+            export IMAGE_NAME=$IMAGE_NAME
+            export JEP=$JEP
+            cd food-reservation
+            sh script/prod.sh
