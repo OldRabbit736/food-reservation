@@ -3,33 +3,28 @@ name: deploy
 on:
   workflow_call:
     inputs:
-      HOST:
-        description: 서버 아이피
+      ENV_NAME:
+        description: 프로덕션 environment
         required: true
         type: string
-      USERNAME:
-        description: 서버 유저네임
-        required: true
+      IMAGE_NAME:
+        description: 배포할 app image name
         type: string
-      PASSWORD:
-        description: 서버 비밀번호
         required: true
-        type: string
-      PORT:
-        description: 서버 포트 번호
+    secrets:
+      JEP:
+        description: jasypt encryptor password
         required: true
-        type: string
-
-env:
-  DOCKERHUB_USER_NAME: oldrabbit736
-  IMAGE_NAME: oldrabbit736/food-reservation-app:0.0.${{ github.run_number }}
-  HOST: ${{ github.event.inputs.HOST }}
-  USERNAME: ${{ github.event.inputs.USERNAME }}
-  PASSWORD: ${{ github.event.inputs.PASSWORD }}
-  PORT: ${{ github.event.inputs.PORT }}
 
 jobs:
   deploy:
+    environment: ${{ inputs.ENV_NAME }}
+    # 각 환경마다 HOST, USERNAME, PASSWORD, PORT 를 Secret 으로 가지고 있어야 한다.
+    # HOST : 배포 서버의 퍼블릭 ip
+    # USERNAME : 배포 서버 접속 계정 이름 (예: root)
+    # PASSWORD : 배포 서버 접속 비밀번호
+    # PORT : 배포 서버 ssh 접속 포트번호 (예: 22)
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -37,23 +32,23 @@ jobs:
       - name: copy file via ssh password
         uses: appleboy/scp-action@master
         with:
-          host: ${{ env.HOST }}
-          username: ${{ env.USERNAME }}
-          password: ${{ env.PASSWORD }}
-          port: ${{ env.PORT }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           source: "script/prod.sh,docker-compose-prod.yml"
           target: "food-reservation"
 
       - name: Up compose in production server
         uses: appleboy/ssh-action@master
         env:
-          IMAGE_NAME: ${{ env.IMAGE_NAME }}
+          IMAGE_NAME: ${{ inputs.IMAGE_NAME }}
           JEP: ${{ secrets.JEP }}
         with:
-          host: ${{ env.HOST }}
-          username: ${{ env.USERNAME }}
-          password: ${{ env.PASSWORD }}
-          port: ${{ env.PORT }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           envs: IMAGE_NAME, JEP
           script: |
             export IMAGE_NAME=$IMAGE_NAME

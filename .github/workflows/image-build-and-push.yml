@@ -54,3 +54,13 @@ jobs:
 
   deploy:
     uses: ./.github/workflows/deploy.yml
+    with:
+      ENV_NAME: PROD_JS
+      IMAGE_NAME: ${{ env.IMAGE_NAME }}
+    secrets:
+      JEP: ${{ secrets.JEP }}
+
+
+#  deploy2:
+#    uses: ./.github/workflows/deploy.yml
+
