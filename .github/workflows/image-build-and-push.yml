@@ -52,7 +52,7 @@ jobs:
       - name: Push to container registry
         run: docker push ${{ env.IMAGE_NAME }}
 
-  deploy_js:
+  deploy-js:
     needs: build-push
     uses: ./.github/workflows/deploy.yml
     with:
@@ -61,11 +61,11 @@ jobs:
       #IMAGE_NAME: ${{ env.IMAGE_NAME }}
     secrets: inherit
 
-  deploy_ms:
+  deploy-ms:
     needs: build-push
     uses: ./.github/workflows/deploy.yml
     with:
       IMAGE_NAME: oldrabbit736/food-reservation-app:0.0.1
-      ENV_NAME: PROD_JS
+      ENV_NAME: PROD_MS
       #IMAGE_NAME: ${{ env.IMAGE_NAME }}
     secrets: inherit
