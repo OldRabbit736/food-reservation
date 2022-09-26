@@ -51,3 +51,6 @@ jobs:
 
       - name: Push to container registry
         run: docker push ${{ env.IMAGE_NAME }}
+
+  deploy:
+    needs: deploy
