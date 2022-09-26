@@ -34,7 +34,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          password: J5U$Y%JrRy
           port: ${{ secrets.PORT }}
           source: "script/prod.sh,docker-compose-prod.yml"
           target: "food-reservation"
