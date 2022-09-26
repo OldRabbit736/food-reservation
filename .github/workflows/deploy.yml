@@ -7,9 +7,6 @@ on:
         description: 배포할 app image name
         type: string
         required: true
-      ENV_NAME:
-        required: true
-        type: string
 #    secrets:
 #      JEP:
 #        description: jasypt encryptor password
