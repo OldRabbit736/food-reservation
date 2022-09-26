@@ -10,10 +10,6 @@ on:
       ENV_NAME:
         required: true
         type: string
-#    secrets:
-#      JEP:
-#        description: jasypt encryptor password
-#        required: true
 
 jobs:
   deploy_to_server:
