@@ -52,20 +52,23 @@ jobs:
       - name: Push to container registry
         run: docker push ${{ env.IMAGE_NAME }}
 
-  deploy-js:
+  deploy:
     needs: build-push
+    strategy:
+      matrix:
+        ENV_NAME: [PROD_JS, PROD_MS]
     uses: ./.github/workflows/deploy.yml
     with:
-      #IMAGE_NAME: oldrabbit736/food-reservation-app:0.0.1
-      ENV_NAME: PROD_JS
-      IMAGE_NAME: ${{ env.IMAGE_NAME }}
+      IMAGE_NAME: oldrabbit736/food-reservation-app:0.0.1
+      ENV_NAME: ${{ matrix.ENV_NAME }}
+      #IMAGE_NAME: ${{ env.IMAGE_NAME }}
     secrets: inherit
 
-  deploy-ms:
-    needs: build-push
-    uses: ./.github/workflows/deploy.yml
-    with:
-      #IMAGE_NAME: oldrabbit736/food-reservation-app:0.0.1
-      ENV_NAME: PROD_MS
-      IMAGE_NAME: ${{ env.IMAGE_NAME }}
-    secrets: inherit
+#  deploy-ms:
+#    needs: build-push
+#    uses: ./.github/workflows/deploy.yml
+#    with:
+#      #IMAGE_NAME: oldrabbit736/food-reservation-app:0.0.1
+#      ENV_NAME: PROD_MS
+#      IMAGE_NAME: ${{ env.IMAGE_NAME }}
+#    secrets: inherit
