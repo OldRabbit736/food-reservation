@@ -53,4 +53,4 @@ jobs:
         run: docker push ${{ env.IMAGE_NAME }}
 
   deploy:
-    needs: deploy
+    uses: ./.github/workflows/deploy.yml
