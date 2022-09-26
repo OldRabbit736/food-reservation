@@ -7,10 +7,10 @@ on:
         description: 배포할 app image name
         type: string
         required: true
-    secrets:
-      JEP:
-        description: jasypt encryptor password
-        required: true
+#    secrets:
+#      JEP:
+#        description: jasypt encryptor password
+#        required: true
 
 jobs:
   deploy:
