@@ -13,7 +13,7 @@ env:
   IMAGE_NAME: oldrabbit736/food-reservation-app:0.0.${{ github.run_number }}
 
 jobs:
-  build-push-deploy:
+  build-push:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -52,5 +52,36 @@ jobs:
       - name: Push to container registry
         run: docker push ${{ env.IMAGE_NAME }}
 
-      # TODO:
-      #- name: Deploy to production server
+  deploy:
+    needs:
+      - build-push
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "script/prod.sh,docker-compose-prod.yml"
+          target: "food-reservation"
+
+      - name: Up compose in production server
+        uses: appleboy/ssh-action@master
+        env:
+          IMAGE_NAME: ${{ env.IMAGE_NAME }}
+          JEP: ${{ secrets.JEP }}
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          envs: IMAGE_NAME, JEP
+          script: |
+            export IMAGE_NAME=$IMAGE_NAME
+            export JEP=$JEP
+            cd food-reservation
+            sh script/prod.sh

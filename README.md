@@ -24,7 +24,9 @@
       * IDE 실행 옵션을 다음과 같이 세팅한 후 앱을 실행시킵니다.
         * spring.active.profile=dev
         * JEP=...
-         
+
+## 인프라 설정 방법
+[링크](./infra/README.md)
 
 ## API Schema
 
