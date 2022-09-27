@@ -56,7 +56,7 @@ jobs:
 
       - name: Set image name output
         id: image-name-output
-        run: echo "::set-output name=image-name::${{ github.run_number }}"
+        run: echo "::set-output name=image-name::${{ env.IMAGE_NAME }}"
 
   # 2개의 environment 에 동일한 방식으로 배포하기 위해 matrix + workflow reuse 방식을 사용함.
   # matrix 에 배포할 environment 들을 지정하고 environment 당 deploy.yml workflow 가 실행되어 각 environment 에 배포됨.
