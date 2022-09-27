@@ -61,17 +61,24 @@ jobs:
   # 2개의 environment 에 동일한 방식으로 배포하기 위해 matrix + workflow reuse 방식을 사용함.
   # matrix 에 배포할 environment 들을 지정하고 environment 당 deploy.yml workflow 가 실행되어 각 environment 에 배포됨.
   # 참고: https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/reusing-workflows#example-matrix-strategy-with-a-reusable-workflow
-  deploy:
+  # 이렇게 시도했지만... 한 가지 문제가 있는데, 바로 parallel instance 중 하나라도 실패하면 나머지 작업도 cancel 시켜버린다는 것이다.
+  # 각 작업이 서로의 성공여부에 상관없이 독립적으로 동작하게 만들고 싶었다. 따라서 이 방식은 폐기하고 job 을 2개로 나누는 방법으로 변경하였다.
+  deploy-js:
     needs: build-push
-    strategy:
-      matrix:
-        ENV_NAME: [ PROD_JS, PROD_MS ]
     uses: ./.github/workflows/deploy.yml
     with:
+      ENV_NAME: PROD_JS
+      IMAGE_NAME: ${{ needs.build-push.outputs.IMAGE_NAME }}
       #IMAGE_NAME: oldrabbit736/food-reservation-app:0.0.1
-      ENV_NAME: ${{ matrix.ENV_NAME }}
       #https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/reusing-workflows#limitations
       #https://stackoverflow.com/questions/73305126/passing-env-variable-inputs-to-a-reusable-workflow
       #https://github.com/orgs/community/discussions/26671
+    secrets: inherit
+
+  deploy-ms:
+    needs: build-push
+    uses: ./.github/workflows/deploy.yml
+    with:
+      ENV_NAME: PROD_MS
       IMAGE_NAME: ${{ needs.build-push.outputs.IMAGE_NAME }}
     secrets: inherit
