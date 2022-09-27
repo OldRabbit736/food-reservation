@@ -8,6 +8,7 @@ services:
       - "3306:3306"
   app:
     # https://docs.docker.com/compose/compose-file/#interpolation
+    # ${IMAGE_NAME}, ${JEP} 는 docker compose 를 실행시키는 서버의 환경변수로부터 받아옵니다.
     image: ${IMAGE_NAME}
     restart: always
     depends_on:
