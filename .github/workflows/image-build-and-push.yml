@@ -60,9 +60,9 @@ jobs:
 
   # 각 environment 로 배포 작업 - 각 environment 마다 job 1개 씩 지정, job 은 deploy.yml workflow 재사용
   # 각 environment 마다 job 1개 씩 지정 하는 것 대신 matrix 에 environment 를 리스트 형식으로 지정하고 대신 job 을 1개로 유지하는 방식도 시도해보았으나,
-  # 한 가지 문제가 있었는데, parallel instance 중 하나라도 실패하면 나머지 작업도 cancel 시켜버린다는 점이다.
-  # 각 작업이 서로의 성공여부에 상관없이 독립적으로 동작하게 만들고 싶었다. 따라서 이 방식은 폐기하고 아래와 같이 job 을 2개로 나누는 방법으로 변경하였다.
   # matrix 참고: https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/reusing-workflows#example-matrix-strategy-with-a-reusable-workflow
+  # 한 가지 문제가 있었는데, parallel instance 중 하나라도 실패하면 나머지 작업도 cancel 시켜버린다는 점입니다. (fast fail)
+  # 각 작업이 서로의 성공여부에 상관없이 독립적으로 동작하게 만들기 위해, 비록 약간의 duplication 이 발생하지만, 아래와 같이 job 을 2개로 나누는 방법으로 변경하였습니다.
   deploy-js:
     needs: build-push
     uses: ./.github/workflows/deploy.yml
@@ -70,9 +70,9 @@ jobs:
       ENV_NAME: PROD_JS
       IMAGE_NAME: ${{ needs.build-push.outputs.IMAGE_NAME }}
       # 이전 job 의 output 으로 IMAGE_NAME 전달
-      # IMAGE_NAME: ${{ env.IMAGE_NAME }} 과 같이 직접적으로 env context 를 이용하려 하였으나, github actions 가 설정한 한계에 의해 불가능하다.
+      # IMAGE_NAME: ${{ env.IMAGE_NAME }} 과 같이 직접적으로 env context 를 이용하려 하였으나, github actions 가 설정한 한계에 의해 불가능합니다.
       # 다음 링크의 Limitations 의 마지막 세 번째 항목 참조: https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/reusing-workflows#limitations
-      # 따라서 workaround 로 job 의 output 을 통해 전달하는 방식을 택하였다.
+      # 따라서 workaround 로 job 의 output 을 통해 전달하는 방식을 택하였습니다.
       # 참고1: https://stackoverflow.com/questions/73305126/passing-env-variable-inputs-to-a-reusable-workflow
       # 참고2: https://github.com/orgs/community/discussions/26671
     secrets: inherit

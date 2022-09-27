@@ -8,8 +8,9 @@ on:
         type: string
         required: true
       ENV_NAME:
-        # github repository Settings > Environments 에 동일한 이름의 환경 존재해야 함
-        # 각 환경마다 HOST, USERNAME, PASSWORD, PORT 를 Secret 으로 가지고 있어야 한다.
+        # github repository Settings > Environments 에 input 으로 전달되는 ENV_NAME 과 동일한 환경이 존재해야
+        # 해당 환경에서 배포가 이루어집니다.
+        # 또한, 각 환경마다 HOST, USERNAME, PASSWORD, PORT 를 Secret 으로 가지고 있어야 합니다.
         # HOST : 배포 서버의 퍼블릭 ip
         # USERNAME : 배포 서버 접속 계정 이름 (예: root)
         # PASSWORD : 배포 서버 접속 비밀번호
