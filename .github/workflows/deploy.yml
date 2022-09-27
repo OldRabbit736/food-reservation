@@ -4,28 +4,29 @@ on:
   workflow_call:
     inputs:
       IMAGE_NAME:
-        description: 배포할 app image name
+        description: 배포할 image name
         type: string
         required: true
       ENV_NAME:
-        required: true
+        # github repository Settings > Environments 에 동일한 이름의 환경 존재해야 함
+        # 각 환경마다 HOST, USERNAME, PASSWORD, PORT 를 Secret 으로 가지고 있어야 한다.
+        # HOST : 배포 서버의 퍼블릭 ip
+        # USERNAME : 배포 서버 접속 계정 이름 (예: root)
+        # PASSWORD : 배포 서버 접속 비밀번호
+        # PORT : 배포 서버 ssh 접속 포트번호 (예: 22)
+        description: 배포 환경 이름
         type: string
+        required: true
 
 jobs:
   deploy-to-server:
     environment:
       name: ${{ inputs.ENV_NAME }}
-    # 각 환경마다 HOST, USERNAME, PASSWORD, PORT 를 Secret 으로 가지고 있어야 한다.
-    # HOST : 배포 서버의 퍼블릭 ip
-    # USERNAME : 배포 서버 접속 계정 이름 (예: root)
-    # PASSWORD : 배포 서버 접속 비밀번호
-    # PORT : 배포 서버 ssh 접속 포트번호 (예: 22)
-
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
-      - name: copy file via ssh password
+      - name: Copy script, docker compose files
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -35,7 +36,7 @@ jobs:
           source: "script/prod.sh,docker-compose-prod.yml"
           target: "food-reservation"
 
-      - name: Up compose in production server
+      - name: Docker compose up
         uses: appleboy/ssh-action@master
         env:
           IMAGE_NAME: ${{ inputs.IMAGE_NAME }}
