@@ -1,5 +1,4 @@
 # production server 환경에서 실행되는 스크립트입니다.
-# DockerHub 으로부터 이미지를 다운받아 실행합니다.
 # 스크립트 실행 전 IMAGE_NAME, JEP 환경변수 설정이 필요합니다. CD 과정에서 자동으로 설정됩니다.
 
 if [ -z "${IMAGE_NAME}" ]; then
