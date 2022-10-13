@@ -9,4 +9,4 @@ build
 bin
 
 app/src/main/resources/config/jasypt/application-dev.yml
-app/src/main/resources/config/jasypt/application-test.yml
+
