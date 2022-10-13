@@ -3,7 +3,7 @@ package com.foodlab.foodReservation.seller.service;
 import com.foodlab.foodReservation.seller.dto.request.CreateSellerRequest;
 import com.foodlab.foodReservation.seller.dto.response.CreateSellerResponse;
 import com.foodlab.foodReservation.seller.entity.Seller;
-import com.foodlab.foodReservation.testUtils.AbstractContainerBase;
+import com.foodlab.foodReservation.testUtils.TestContainerBase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestEntityManager;
@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.*;
 @SpringBootTest
 @AutoConfigureTestEntityManager
 @Transactional
-class SellerServiceIntegrationTest extends AbstractContainerBase {
+class SellerServiceIntegrationTest extends TestContainerBase {
 
     @Autowired
     TestEntityManager te;

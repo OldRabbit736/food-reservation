@@ -12,7 +12,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
  */
 @Testcontainers
 @ActiveProfiles("test")
-public class AbstractContainerBase {
+public class TestContainerBase {
 
     static final MariaDBContainer<?> mariadb;
 

@@ -1,7 +1,7 @@
 package com.foodlab.foodReservation.seller.repository;
 
 import com.foodlab.foodReservation.seller.entity.Seller;
-import com.foodlab.foodReservation.testUtils.AbstractContainerBase;
+import com.foodlab.foodReservation.testUtils.TestContainerBase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class SellerRepositoryIntegrationTest extends AbstractContainerBase {
+class SellerRepositoryIntegrationTest extends TestContainerBase {
 
     @Autowired
     SellerRepository sellerRepository;

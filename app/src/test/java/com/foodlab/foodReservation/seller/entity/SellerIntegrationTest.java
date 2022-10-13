@@ -1,6 +1,6 @@
 package com.foodlab.foodReservation.seller.entity;
 
-import com.foodlab.foodReservation.testUtils.AbstractContainerBase;
+import com.foodlab.foodReservation.testUtils.TestContainerBase;
 import org.hibernate.exception.ConstraintViolationException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class SellerIntegrationTest extends AbstractContainerBase {
+class SellerIntegrationTest extends TestContainerBase {
 
     @Autowired
     TestEntityManager testEntityManager;
