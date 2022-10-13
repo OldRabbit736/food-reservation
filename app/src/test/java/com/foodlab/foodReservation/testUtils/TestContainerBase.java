@@ -14,6 +14,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @ActiveProfiles("test")
 public class TestContainerBase {
 
+    // TODO: 추후 docker-compose 파일을 통해 Testcontainer 로드 하도록 변경 (연결되는 컨테이너가 늘어나면)
     static final MariaDBContainer<?> mariadb;
 
     static {
