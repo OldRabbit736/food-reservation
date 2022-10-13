@@ -8,7 +8,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 /**
  * test class 가 실행될 때마다 새로 test container 를 생성하는 대신, 미리 만들어둔 test container 를 사용할 수 있게 하는 Abstract class
- * https://www.testcontainers.org/test_framework_integration/manual_lifecycle_control/
+ * <a href="https://www.testcontainers.org/test_framework_integration/manual_lifecycle_control/">참고링크</a>
  */
 @Testcontainers
 @ActiveProfiles("test")
