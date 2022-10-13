@@ -25,10 +25,6 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
-      # docker compose 이용하여 test 수행에 필요한 외부 서비스 실행
-      - name: Set up test environment
-        run: sh script/test-ci.sh
-
       # build task 를 수행하는 과정에서 test, integration test task 실행
       - name: build
         run: ./gradlew build --scan
