@@ -16,7 +16,10 @@ import static org.springframework.http.MediaType.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-
+/**
+ * 다음 요소들의 integration test
+ * Filter -> Controller -> Service -> Repository -> DB
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 @Transactional

@@ -13,7 +13,10 @@ import javax.persistence.PersistenceException;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-
+/**
+ * 다음 요소들의 integration test
+ * Entity -> DB
+ */
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class SellerIntegrationTest extends TestContainerBase {
@@ -24,11 +27,11 @@ class SellerIntegrationTest extends TestContainerBase {
     @Test
     void sellerEntity_whenValidSellerProvided_thenShouldBeStored() {
         // given
-        Seller seller = Seller.builder().username("oldrabbit").password("1234").build();
+        Seller seller = Seller.builder().username("user").password("1234").build();
         // when
         Seller savedSeller = testEntityManager.persistFlushFind(seller);
         // then
-        assertThat(savedSeller.getUsername()).isEqualTo("oldrabbit");
+        assertThat(savedSeller.getUsername()).isEqualTo("user");
         assertThat(savedSeller.getPassword()).isEqualTo("1234");
         assertThat(savedSeller.getStoreList()).isEmpty();
     }
@@ -36,10 +39,10 @@ class SellerIntegrationTest extends TestContainerBase {
     @Test
     void sellerEntity_whenDuplicateUsernameProvided_thenShouldRejectToStore() {
         // given
-        Seller seller1 = Seller.builder().username("oldrabbit").password("1234").build();
+        Seller seller1 = Seller.builder().username("user").password("1234").build();
         testEntityManager.persistAndFlush(seller1);
         // when
-        Seller seller2 = Seller.builder().username("oldrabbit").password("abcd").build();
+        Seller seller2 = Seller.builder().username("user").password("abcd").build();
         // then
         assertThatThrownBy(() -> testEntityManager.persistAndFlush(seller2))
                 .isInstanceOf(PersistenceException.class)

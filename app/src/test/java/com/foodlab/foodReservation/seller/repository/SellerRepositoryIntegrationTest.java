@@ -11,7 +11,10 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
+/**
+ * 다음 요소들의 integration test
+ * Repository -> DB
+ */
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class SellerRepositoryIntegrationTest extends TestContainerBase {

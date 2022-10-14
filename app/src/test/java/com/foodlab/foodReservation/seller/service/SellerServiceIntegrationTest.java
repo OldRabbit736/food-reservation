@@ -17,7 +17,8 @@ import static org.assertj.core.api.Assertions.*;
 
 
 /**
- * SellerService -> SellerRepository -> DB
+ * 다음 요소들의 integration test
+ * Service -> Repository -> DB
  */
 @SpringBootTest
 @AutoConfigureTestEntityManager
@@ -25,7 +26,7 @@ import static org.assertj.core.api.Assertions.*;
 class SellerServiceIntegrationTest extends TestContainerBase {
 
     @Autowired
-    TestEntityManager te;
+    TestEntityManager tem;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -39,9 +40,9 @@ class SellerServiceIntegrationTest extends TestContainerBase {
         CreateSellerRequest request = new CreateSellerRequest("user", "1234");
         // when
         CreateSellerResponse savedSeller = sellerService.createSeller(request);
-        te.flush();
-        te.clear();
-        Seller foundSeller = te.find(Seller.class, savedSeller.getId());
+        tem.flush();
+        tem.clear();
+        Seller foundSeller = tem.find(Seller.class, savedSeller.getId());
         // then
         assertThat(foundSeller.getUsername()).isEqualTo("user");
     }
@@ -52,9 +53,9 @@ class SellerServiceIntegrationTest extends TestContainerBase {
         CreateSellerRequest request = new CreateSellerRequest("user", "1234");
         // when
         CreateSellerResponse savedSeller = sellerService.createSeller(request);
-        te.flush();
-        te.clear();
-        Seller seller = te.find(Seller.class, savedSeller.getId());
+        tem.flush();
+        tem.clear();
+        Seller seller = tem.find(Seller.class, savedSeller.getId());
         // then
         assertThat(passwordEncoder.matches("1234", seller.getPassword())).isTrue();
     }
@@ -64,8 +65,8 @@ class SellerServiceIntegrationTest extends TestContainerBase {
         // given
         CreateSellerRequest request = new CreateSellerRequest("user", "1234");
         sellerService.createSeller(request);
-        te.flush();
-        te.clear();
+        tem.flush();
+        tem.clear();
         // when, then
         assertThatThrownBy(() -> sellerService.createSeller(request))
                 .isInstanceOf(IllegalArgumentException.class)
