@@ -1,0 +1,207 @@
+<mxfile host="Electron" modified="2024-01-04T13:07:10.124Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.16 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="n76UwOYX_Cv3PdIhCbKO" version="22.1.16" type="device">
+  <diagram name="페이지-1" id="1CvjkSmWy5GvKEPIRCrY">
+    <mxGraphModel dx="1452" dy="1428" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-1" value="GitHub" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="70" y="120" width="340" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-2" target="5nQm-cT-nn_Ip-BBjj7E-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="430" />
+              <mxPoint x="330" y="430" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-2" value="Local" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="260" y="460" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-3" target="5nQm-cT-nn_Ip-BBjj7E-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-3" value="other branches" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="270" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-4" value="GitHub Actions" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="540" y="120" width="590" height="430" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-10" target="5nQm-cT-nn_Ip-BBjj7E-44">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="520" />
+              <mxPoint x="789" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-10" value="main branch" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="100" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-17" value="code push" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="320" y="420" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-15" target="5nQm-cT-nn_Ip-BBjj7E-22">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="285" y="210" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-15" target="5nQm-cT-nn_Ip-BBjj7E-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-15" value="PR" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="230" width="50" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-21" target="5nQm-cT-nn_Ip-BBjj7E-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-21" value="workflow run" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="560" y="260" width="113" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-22" target="5nQm-cT-nn_Ip-BBjj7E-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-22" value="test workflow" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="560" y="190" width="113" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-25" value="생성" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="620" y="230" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-5" value="ubuntu server&lt;br&gt;test job&lt;br&gt;&lt;br&gt;code checkout&lt;br&gt;jdk install&lt;br&gt;build(test)" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="560" y="350" width="113" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-27" value="실행" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="620" y="310" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-29" value="trigger(pull request)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="405" y="180" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-32" value="생성" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="330" y="250" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-36" target="5nQm-cT-nn_Ip-BBjj7E-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-36" target="5nQm-cT-nn_Ip-BBjj7E-39">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="205" y="160" />
+              <mxPoint x="818" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-36" value="merge" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="230" width="50" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-39" target="5nQm-cT-nn_Ip-BBjj7E-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-39" value="image-build-and-push-deploy workflow" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="733.13" y="190" width="168.75" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-41" value="trigger(main push)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="410" y="130" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-42" target="5nQm-cT-nn_Ip-BBjj7E-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-42" value="workflow run" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="761" y="260" width="113" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-44" target="5nQm-cT-nn_Ip-BBjj7E-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-44" value="ubuntu server&lt;br&gt;build-push job&lt;br&gt;&lt;br&gt;code checkout&lt;br&gt;jdk install&lt;br&gt;build&lt;br&gt;docker image build&lt;br&gt;upload to Docker Hub" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="761" y="350" width="113" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-46" value="생성" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="820" y="230" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-47" value="Docker Hub" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="120" width="170" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-49" value="code checkout" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="420" y="300" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-51" value="실행" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="820" y="310" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-53" value="code checkout" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="420" y="490" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-56" value="App Image" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1225" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-44" target="5nQm-cT-nn_Ip-BBjj7E-56">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1050" y="350" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="846" y="520" />
+              <mxPoint x="1255" y="520" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-57" value="image upload" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1170" y="520" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-3" target="5nQm-cT-nn_Ip-BBjj7E-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-58" value="App Server(ubuntu)" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="1440" y="120" width="170" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-60" target="5nQm-cT-nn_Ip-BBjj7E-65">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1410" y="385" />
+              <mxPoint x="1410" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-60" target="5nQm-cT-nn_Ip-BBjj7E-65">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1630" y="455" />
+              <mxPoint x="1630" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-60" value="ubuntu server&lt;br&gt;deploy-to-server job&lt;br&gt;&lt;br&gt;code checkout&lt;br&gt;배포 script, docker compose file, nginx config file 을 App Server로 복사&lt;br&gt;App Server에서 배포 script 실행" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="934" y="350" width="180" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-62" value="trigger" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="874" y="390" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-64" value="ssh로 배포 script, docker compose file,&lt;br&gt;nginx config file 전달" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="385" width="230" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-65" target="5nQm-cT-nn_Ip-BBjj7E-66">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-65" value="배포 script, docker compose file, nginx config file" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1465" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-66" value="docker compose&lt;br&gt;App Image, nginx, db 실행" style="whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1465" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-68" value="ssh로 배포 script 실행" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="460" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-70" value="실행" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1520" y="220" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="5nQm-cT-nn_Ip-BBjj7E-56" target="5nQm-cT-nn_Ip-BBjj7E-66">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-72" value="이미지 다운로드" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="300" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5nQm-cT-nn_Ip-BBjj7E-73" value="food-reservation CICD 구조" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="30" y="20" width="270" height="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
